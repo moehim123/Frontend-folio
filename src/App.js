@@ -1,24 +1,53 @@
+// src/App.js
 import './App.css';
+import { Box } from '@chakra-ui/react';
+import { Routes, Route, Navigate, useParams } from 'react-router-dom';
+
 import Header from './Header';
 import Home from './Home';
-import { Box} from "@chakra-ui/react";
-import Projects from './Projects';
+import ProjectsSection from './ProjectsSection';
 import Footer from './Footer';
+import ProjectPageTemplate from './ProjectPageTemplate';
+import allProjects from './DataFile';
+import Projects from './Projects';
 
 
 function App() {
   return (
-    <Box
-    //width={{ base: "90%", md: "80%", lg: "70%", xl: "60%" }}
-    margin="0 auto"
-    marginTop="24px"
-    >
-      <Header/>
-      <Home/>
-      <Projects/>
-      <Footer/>
+    <Box mx="auto" mt="24px">
+      <Header /> 
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Home />
+              <ProjectsSection />
+              <Projects />
+            </>
+          }
+        />
+
+        <Route path="/projects/:projectId" element={<ProjectLoader />} />
+
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+
+      <Footer />
     </Box>
   );
 }
 
+function ProjectLoader() {
+  const { projectId } = useParams();
+  const project = allProjects.find((p) => p.id === projectId);
+  if (!project) {
+    return <Navigate to="/" replace />;
+  }
+  return <ProjectPageTemplate data={project} />;
+}
+
 export default App;
+
+

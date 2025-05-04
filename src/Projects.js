@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, HStack, VStack, Heading, Text, Image, Flex, Button } from "@chakra-ui/react";
+import { Box, HStack, VStack, Heading, Text, Image, Flex, Button, Divider  } from "@chakra-ui/react";
 import FigmaIcon from "./Images/FigmaIcon.svg";
 import GithubIcon from "./Images/GithubIcon.svg";
 import ArrowIcon from "./Images/ArrowIcon.svg";
@@ -18,19 +18,36 @@ const Projects = () => {
       viewport={{ once: true }}
     >
       <Box>
+       
         {ProjectData().map((project, index) => (
           <Box
             key={index}
             width={{ base: "90%", md: "80%", lg: "70%" }}
             margin="0 auto"
             borderRadius="14px"
-            border = "2px #D3D3D3"
+            //border = "2px #D3D3D3 solid"
             bg = "#fff"
             marginTop={{ base: "60px", md: "124px" }}
             padding={{ base: "16px", md: "24px" }}
             position="relative"
           >
-            <HStack
+             <Heading
+          color="#1E1E1E"
+          fontFamily="Montserrat"
+          fontSize="48px"
+          fontWeight="600"
+          lineHeight="122.016%"
+          textTransform="uppercase"
+          mb="8px"
+        >
+          Frontend -  {project.projectTitle}
+    
+        </Heading>
+
+        <Divider bg="#D1D1D1" h="1px" mb="24px" />
+
+
+            <HStack 
               gap={{ base: "10px", md: "20px" }}
               flexDirection={{ base: "column", lg: "row" }}
               alignItems={{ base: "flex-start", lg: "center" }}
@@ -40,15 +57,7 @@ const Projects = () => {
                 gap={{ base: "10px", md: "15px" }}
                 alignItems="flex-start"
               >
-                <Heading
-                  color="#504E4E"
-                  fontSize={{ base: "20px", md: "24px" }}
-                  fontWeight="600"
-                  fontStyle="normal"
-                >
-                  {project.projectTitle}
-                </Heading>
-                <Image src={project.projectImage} alt={`${project.projectTitle}-image`} width={{ base: "100%", lg: "auto" }} />
+              <Image src={project.projectImage} alt={`${project.projectTitle}-image`} width={{ base: "100%", lg: "auto" }} />
                 <HStack gap={{ base: "10px", md: "27px" }} flexWrap="wrap">
                   <Flex gap="4px">
                     <Image src={GithubIcon} alt="Github-icon" />
@@ -57,7 +66,7 @@ const Projects = () => {
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      color="#504E4E"
+                      color="#1E1E1E"
                       fontSize={{ base: "10px", md: "12px" }}
                       fontWeight="250"
                       fontStyle="normal"
@@ -72,7 +81,7 @@ const Projects = () => {
                       href={project.FigmaLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      color="#504E4E"
+                      color="#1E1E1E"
                       fontSize={{ base: "10px", md: "12px" }}
                       fontWeight="250"
                       fontStyle="normal"
@@ -84,9 +93,9 @@ const Projects = () => {
               </VStack>
               <Text
                 width={{ base: "100%", lg: "578px" }}
-                color="#504E4E"
-                fontSize={{ base: "14px", md: "16px" }}
-                fontWeight="400"
+                color="#1E1E1E"
+                fontSize={{ base: "14px", md: "16px" }}a
+                fontWeight="300"
                 fontStyle="normal"
               >
                 {project.projectDescription}

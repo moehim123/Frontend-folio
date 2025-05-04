@@ -4,18 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-import "@fontsource/aileron";
+import { BrowserRouter } from 'react-router-dom';
 
 const theme = extendTheme({
   fonts: {
-    heading: "Aileron, sans-serif",
-    body: "Aileron, sans-serif",
+    heading: "'Montserrat', sans-serif",
+    body:    "'Montserrat', sans-serif",
+    mono:    "'Mona Sans', sans-serif",
   },
   styles: {
     global: {
       "html, body": {
-        backgroundColor: "#ffffff",
-        color: "#333",
+        backgroundColor: "#F9F9F9",
+        color: "#333333",
         margin: 0,
         padding: 0,
         boxSizing: "border-box",
@@ -26,9 +27,12 @@ const theme = extendTheme({
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ChakraProvider theme={theme}>
-    <App />
-  </ChakraProvider>,
+  <BrowserRouter>
+    <ChakraProvider theme={theme}>
+      <App />
+    </ChakraProvider> 
+  </BrowserRouter> 
 );
 
 reportWebVitals();
+
