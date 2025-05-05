@@ -1,5 +1,4 @@
-
-/* src/components/ProjectPageTemplate.jsx */
+// src/components/ProjectPageTemplate.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import {
   Box,
@@ -11,7 +10,6 @@ import {
   Link as ChakraLink,
   Wrap,
   WrapItem,
-  Divider,
 } from '@chakra-ui/react';
 import LinkIcon from './Images/link-icon.svg';
 import OverviewIcon from './Images/overview-icon.svg';
@@ -76,7 +74,13 @@ const SectionRenderer = ({ section, themeColor }) => {
     return (
       <Flex overflowX="auto" gap="24px">
         {images.map((src, idx) => (
-          <Image key={idx} src={src} flex="0 0 100%" maxW="100%" borderRadius="8px" />
+          <Image
+            key={idx}
+            src={src}
+            flex="0 0 100%"
+            maxW="100%"
+            borderRadius="8px"
+          />
         ))}
       </Flex>
     );
@@ -108,13 +112,36 @@ const SectionRenderer = ({ section, themeColor }) => {
             </Box>
             <VStack spacing="24px" align="flex-start" pt="16px">
               {sub.text && (
-                <Text fontFamily="Mona Sans" fontSize="14px" fontWeight="400" color="#1E1E1E">
+                <Text
+                  fontFamily="Mona Sans"
+                  fontSize="14px"
+                  fontWeight="400"
+                  color="#1E1E1E"
+                >
                   {sub.text}
                 </Text>
               )}
-              {sub.images && sub.images.map((src, idx) => (
-                <Image key={idx} src={src} w="100%" />
-              ))}
+              {sub.pdf && (
+                <Box w="1028px" h="600px">
+                  <object
+                    data={sub.pdf}
+                    type="application/pdf"
+                    width="100%"
+                    height="100%"
+                  >
+                    <Text fontSize="14px">
+                      Your browser doesn’t support embedded PDFs.&nbsp;
+                      <ChakraLink href={sub.pdf} color={themeColor}>
+                        Download the report
+                      </ChakraLink>
+                    </Text>
+                  </object>
+                </Box>
+              )}
+              {sub.images &&
+                sub.images.map((src, idx) => (
+                  <Image key={idx} src={src} w="100%" />
+                ))}
             </VStack>
           </Box>
         ))}
@@ -125,19 +152,24 @@ const SectionRenderer = ({ section, themeColor }) => {
   return (
     <VStack spacing="24px" align="flex-start">
       {text && (
-        <Text fontFamily="Mona Sans" fontSize="14px" fontWeight="400" color="#1E1E1E">
+        <Text
+          fontFamily="Mona Sans"
+          fontSize="14px"
+          fontWeight="400"
+          color="#1E1E1E"
+        >
           {text}
         </Text>
       )}
-      {images && images.map((src, i) => (
-        <Image key={i} src={src} w="100%" />
-      ))}
+      {images &&
+        images.map((src, i) => <Image key={i} src={src} w="100%" />)}
     </VStack>
   );
 };
 
 const ProjectPageTemplate = ({ data }) => {
-  const { sidebar, bannerImage, liveLink, skills, sections, themeColor } = data;
+  const { sidebar, bannerImage, liveLink, skills, sections, themeColor } =
+    data;
   const [active, setActive] = useState(sidebar[0].key);
   const sectionRefs = useRef({});
 
@@ -163,7 +195,7 @@ const ProjectPageTemplate = ({ data }) => {
         top="0"
         w="232px"
         h="517px"
-        p="18px 18px"
+        p="18px"
         bg="#F6F6F6"
         align="flex-start"
         borderRight="1px solid #F6F6F6"
@@ -177,26 +209,28 @@ const ProjectPageTemplate = ({ data }) => {
             fontFamily="Mona Sans"
             fontSize="11px"
             fontWeight="400"
-            color={active === sec.key ? '#BABCB9': '#1E1E1E'
-          }
+            color={active === sec.key ? '#BABCB9' : '#1E1E1E'}
           >
             {sec.title}
           </ChakraLink>
         ))}
       </VStack>
-
       <VStack flex="1" spacing="48px" align="flex-start" px="24px">
         <Image src={bannerImage} w="100%" />
-
         {liveLink && (
           <HStack align="center" gap="10px">
             <Image src={LinkIcon} boxSize="20px" />
-            <ChakraLink href={liveLink} fontFamily="Mona Sans" fontSize="18px" fontWeight="400" color="#1E1E1E">
+            <ChakraLink
+              href={liveLink}
+              fontFamily="Mona Sans"
+              fontSize="18px"
+              fontWeight="400"
+              color="#1E1E1E"
+            >
               {liveLink}
             </ChakraLink>
           </HStack>
         )}
-
         <Box
           display="flex"
           width="166px"
@@ -219,7 +253,6 @@ const ProjectPageTemplate = ({ data }) => {
             Skills
           </Text>
         </Box>
-
         <Wrap spacing="14px">
           {skills.map((skill) => (
             <WrapItem key={skill}>
@@ -227,7 +260,6 @@ const ProjectPageTemplate = ({ data }) => {
             </WrapItem>
           ))}
         </Wrap>
-
         {sections.map((sec) => (
           <Box
             key={sec.key}
@@ -240,7 +272,12 @@ const ProjectPageTemplate = ({ data }) => {
             w="1170px"
             marginBottom="84px"
           >
-            <Text fontFamily="Mona Sans" fontSize="34px" fontWeight="500" color="#1E1E1E">
+            <Text
+              fontFamily="Mona Sans"
+              fontSize="34px"
+              fontWeight="500"
+              color="#1E1E1E"
+            >
               {sec.title}
             </Text>
             <SectionRenderer section={sec} themeColor={themeColor} />
@@ -252,5 +289,3 @@ const ProjectPageTemplate = ({ data }) => {
 };
 
 export default ProjectPageTemplate;
-
-

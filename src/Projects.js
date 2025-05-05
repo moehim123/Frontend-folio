@@ -34,7 +34,7 @@ const Projects = () => {
              <Heading
           color="#1E1E1E"
           fontFamily="Montserrat"
-          fontSize="48px"
+          fontSize={{ base: "24px", md: "48px" }}
           fontWeight="600"
           lineHeight="122.016%"
           textTransform="uppercase"

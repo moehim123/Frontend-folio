@@ -25,7 +25,7 @@ const Home = () => (
     transition={{ duration: 0.6 }}
     viewport={{ once: true }}
   >
-    <Box bg="#F9F9F9" mt={{ base: "24px", md: "204px" }} px={{ base: "16px", md: "0" }}>
+    <Box bg="#F9F9F9" mt={{ base: "124px", md: "204px" }} px={{ base: "16px", md: "0" }}>
       <VStack spacing={{ base: 4, md: 8 }} align="flex-start" maxW="1265px" mx="auto">
         <Flex align="center" gap="14px">
           <Text
