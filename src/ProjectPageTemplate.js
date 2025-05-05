@@ -122,7 +122,7 @@ const SectionRenderer = ({ section, themeColor }) => {
                 </Text>
               )}
               {sub.pdf && (
-                <Box w="1028px" h="600px">
+                <Box w="100%" h="600px">
                   <object
                     data={sub.pdf}
                     type="application/pdf"
@@ -188,9 +188,10 @@ const ProjectPageTemplate = ({ data }) => {
   }, [sidebar]);
 
   return (
-    <Flex>
+    <Flex flexDirection={{ base: 'column', md: 'row' }}>
       <VStack
         as="nav"
+        display={{ base: 'none', md: 'flex' }}
         pos="sticky"
         top="0"
         w="232px"
@@ -269,7 +270,7 @@ const ProjectPageTemplate = ({ data }) => {
             flexDirection="column"
             alignItems="flex-start"
             gap="24px"
-            w="1170px"
+            w={{ base: '100%', md: '1170px' }}
             marginBottom="84px"
           >
             <Text
