@@ -18,7 +18,7 @@ const Footer = () => {
                 <Flex gap="4px">
                     <Button
                         as="a"
-                        href="https://www.linkedin.com/in/mohamed-himmat-a91951209"
+                        href="https://www.linkedin.com/in/mohammed-mohammed-a91951209"
                         target="_blank"
                         rel="noopener noreferrer"
                         bg="transparent"

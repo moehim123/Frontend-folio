@@ -149,7 +149,7 @@ const stande = {
     {
       key: 'release',
       title: 'Release & Gathering Feedback',
-      text: 'From the release of the MVP some areas went through changes in response to feedback.',
+      text: 'From the release of the MVP some areas went through changes in response to feedback. I will be sharing them soon. ',
     },
     
   ],

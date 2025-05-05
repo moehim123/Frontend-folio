@@ -77,6 +77,8 @@ const ProjectCard = ({ id, image, tag, title, description, skills }) => {
           <ChakraLink
             as={RouterLink}
             to={`/projects/${id}`}
+            target="_blank"
+            rel="noopener noreferrer"
             fontSize="sm"
             fontWeight="medium"
             color="white"
