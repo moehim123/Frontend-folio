@@ -55,7 +55,7 @@ const Home = () => (
           textTransform="uppercase"
           w="full"
         >
-          I LOVE BEAUTIFUL DESIGN BUT I CHOOSE FUNCTIONAL FIRST
+          I LOVE BEAUTIFUL DESIGN, BUT I CHOOSE FUNCTIONALITY FIRST 
         </Heading>
         <Text
           color="#1E1E1E"

@@ -22,7 +22,7 @@ const Projects = () => {
         {ProjectData().map((project, index) => (
           <Box
             key={index}
-            width={{ base: "90%", md: "80%", lg: "70%" }}
+            width={{ base: "90%", md: "65%", lg: "65%" }}
             margin="0 auto"
             borderRadius="14px"
             //border = "2px #D3D3D3 solid"

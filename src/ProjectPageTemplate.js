@@ -10,6 +10,7 @@ import {
   Link as ChakraLink,
   Wrap,
   WrapItem,
+  Circle
 } from '@chakra-ui/react';
 import LinkIcon from './Images/link-icon.svg';
 import OverviewIcon from './Images/overview-icon.svg';
@@ -39,6 +40,23 @@ const SectionRenderer = ({ section, themeColor }) => {
   const isOverview = /overview/i.test(title);
   const isChallenges = /challenges/i.test(title);
   const isSolutions = /solutions/i.test(title);
+  const containerRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;        // ← bail out if the ref isn’t set yet
+  
+    const handleScroll = () => {
+      const scrollLeft = container.scrollLeft;
+      const width = container.offsetWidth;
+      setCurrentIndex(Math.round(scrollLeft / width));
+    };
+  
+    container.addEventListener("scroll", handleScroll);
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, [images]);                    // ← re-run if the image list changes
+
 
   if (isOverview || isChallenges || isSolutions) {
     const Icon = isOverview
@@ -72,17 +90,41 @@ const SectionRenderer = ({ section, themeColor }) => {
 
   if (key === 'high_fidelity') {
     return (
-      <Flex overflowX="auto" gap="24px">
+      <Box>
+      <Flex
+        ref={containerRef}
+        overflowX="scroll"
+        scrollSnapType="x mandatory"
+        scrollBehavior="smooth"
+        css={{
+          "&::-webkit-scrollbar": { display: "none" },
+        }}
+        gap="24px"
+        width="100%"
+      >
         {images.map((src, idx) => (
           <Image
             key={idx}
             src={src}
             flex="0 0 100%"
-            maxW="100%"
+            scrollSnapAlign="start"
             borderRadius="8px"
+            objectFit="cover"
           />
         ))}
       </Flex>
+
+      <HStack justify="center" mt={4} spacing={2}>
+        {images.map((_, idx) => (
+          <Circle
+            key={idx}
+            size="10px"
+            bg={idx === currentIndex ? "gray.800" : "gray.400"}
+            transition="all 0.3s"
+          />
+        ))}
+      </HStack>
+    </Box>
     );
   }
 

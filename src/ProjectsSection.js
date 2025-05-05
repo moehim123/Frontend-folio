@@ -16,6 +16,11 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
+import standeProjectImage from "./Images/stande-project-image.svg";
+import himmatsProjectImage from "./Images/himmats-project-image.svg";
+import trackdayProjectImage from "./Images/trackday-project-image.svg";
+
+
 
 const SkillBadge = ({ children }) => (
   <Box
@@ -56,7 +61,7 @@ const ProjectCard = ({ id, image, tag, title, description, skills }) => {
           p={{ base: 4, md: 6 }}
           display="flex"
           flexDirection="column"
-          textAlign={textAlign}
+          textAlign={textAlign} 
         >
           <Flex
             align="center"
@@ -83,6 +88,7 @@ const ProjectCard = ({ id, image, tag, title, description, skills }) => {
             fontWeight="medium"
             color="white"
             mb={4}
+            alignSelf="center" 
           >
             View Project
           </ChakraLink>
@@ -111,9 +117,9 @@ const ProjectCard = ({ id, image, tag, title, description, skills }) => {
 
 const ProjectsSection = () => {
   const projects = [
-    { id: 'stande', image: standeProjectImage, tag: 'Solo Project', title: 'Stande', description: 'A web application that helps students...', skills: ['UI/UX', 'Frontend'] },
-    { id: 'himmats', image: himmatsProjectImage, tag: 'Solo Project', title: 'Himmats', description: 'A web application that helps students...', skills: ['UI/UX', 'Frontend'] },
-    { id: 'trackday', image: trackdayProjectImage, tag: 'Group Project', title: 'Trackday', description: 'A web application that helps students...', skills: ['UI/UX', 'Frontend'] },
+    { id: 'stande', image: standeProjectImage, tag: 'Solo Project', title: 'Stande', description: '', skills: ['UI/UX', 'Frontend'] },
+    { id: 'himmats', image: himmatsProjectImage, tag: 'Solo Project', title: 'Himmats', description: '', skills: ['UI/UX', 'Frontend'] },
+    { id: 'trackday', image: trackdayProjectImage, tag: 'Group Project', title: 'Trackday', description: '', skills: ['UI/UX', 'Frontend'] },
   ];
 
   return (
@@ -137,7 +143,7 @@ const ProjectsSection = () => {
 
       <Divider borderColor="gray.300" mb={{ base: 6, md: 8 }} />
 
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={{ base: 6, md: 8, lg: 10 }}>
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 2 }} spacing={{ base: 6, md: 8, lg: 10 }}>
         {projects.map((p) => (
           <ProjectCard key={p.id} {...p} />
         ))}
