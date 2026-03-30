@@ -7,9 +7,9 @@ import JavascriptImage from "./Images/Javascript-Image.svg";
 import FigmaImage from "./Images/Figma-Image.svg";
 import { motion } from "framer-motion";
 import TailwindImage from "./Images/Tailwind-Image.svg";
-import TypescriptImage from "./Images/typescript-svgrepo...m 1.png";
-import NodeJsImage from "./Images/node.js.png";
-import MiroImage from "./Images/miro-svgrepo-com 1.png";
+import TypescriptImage from "./Images/typescript-svgrepo-com-1.png";
+import NodeJsImage from "./Images/node.js.svg";
+import MiroImage from "./Images/miro-svgrepo-com 1.svg";
 
 const MotionBox = motion(Box);
 
@@ -84,15 +84,15 @@ const Home = () => (
           {tools.map((tool) => (
             <WrapItem key={tool.label}>
               <Flex
-                w="166px"
-                py="10px"
-                px="24px"
-                align="center"
-                justify="center"
-                gap="10px"
-                borderRadius="48px"
-                boxShadow="0px 4px 4px rgba(0,0,0,0.1)"
-              >
+                  px="16px"
+                  py="10px"
+                  align="center"
+                  justify="center"
+                  gap="8px"
+                  borderRadius="48px"
+                  boxShadow="0px 4px 4px rgba(0,0,0,0.1)"
+                  bg="white"
+                >
                 <Image src={tool.src} alt={tool.alt} w="20px" h="20px" flexShrink={0} />
                 <Text
                   color="#1E1E1E"
