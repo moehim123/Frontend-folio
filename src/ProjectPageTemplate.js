@@ -180,10 +180,28 @@ const SectionRenderer = ({ section, themeColor }) => {
                   </object>
                 </Box>
               )}
-              {sub.images &&
-                sub.images.map((src, idx) => (
-                  <Image key={idx} src={src} w="100%" />
-                ))}
+              {sub.images && (
+  <Flex wrap="wrap" gap="24px" w="100%">
+              {sub.images.map((src, idx) => (
+                <Box
+                  key={idx}
+                  w={{ base: "100%", md: "calc(50% - 12px)" }}
+                  h="400px"
+                  borderRadius="12px"
+                  overflow="hidden"
+                  bg="white"
+                  boxShadow="sm"
+                >
+                  <Image
+                    src={src}
+                    w="100%"
+                    h="100%"
+                    objectFit="cover"
+                  />
+                </Box>
+              ))}
+            </Flex>
+          )}
             </VStack>
           </Box>
         ))}

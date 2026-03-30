@@ -9,7 +9,8 @@ import ProjectsSection from './ProjectsSection';
 import Footer from './Footer';
 import ProjectPageTemplate from './ProjectPageTemplate';
 import allProjects from './DataFile';
-import Projects from './Projects';
+import Projects from './Projects'; 
+import FullStackUXSection from './FullStackUXSection';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           element={
             <>
               <Home />
+              <FullStackUXSection />
               <ProjectsSection />
               <Projects />
             </>

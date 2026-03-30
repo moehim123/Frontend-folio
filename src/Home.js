@@ -45,7 +45,7 @@ const Home = () => (
           textTransform="uppercase"
           w="full"
         >
-          Product designer & frontend developer
+          Product designer &  developer
         </Heading>
         <Heading
           color="#1E1E1E"
