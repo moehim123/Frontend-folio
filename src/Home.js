@@ -6,6 +6,10 @@ import ReactImage from "./Images/React-Image.svg";
 import JavascriptImage from "./Images/Javascript-Image.svg";
 import FigmaImage from "./Images/Figma-Image.svg";
 import { motion } from "framer-motion";
+import TailwindImage from "./Images/Tailwind-Image.svg";
+import TypescriptImage from "./Images/typescript-svgrepo...m 1.png";
+import NodeJsImage from "./Images/node.js.png";
+import MiroImage from "./Images/miro-svgrepo-com 1.png";
 
 const MotionBox = motion(Box);
 
@@ -14,7 +18,10 @@ const tools = [
   { src: HTMLImage, alt: "HTML 5", label: "HTML 5" },
   { src: CSSImage, alt: "CSS", label: "CSS" },
   { src: FigmaImage, alt: "Figma", label: "Figma" },
-  { src: ReactImage, alt: "React", label: "React" },
+  { src: ReactImage, alt: "React", label: "React" },  { src: TailwindImage, alt: "Tailwind", label: "Tailwind" },
+  { src: TypescriptImage, alt: "Typescript", label: "Typescript" },
+  { src: NodeJsImage, alt: "Node.js", label: "Node.js" },
+  { src: MiroImage, alt: "Miro", label: "Miro" },
 ];
 
 const Home = () => (
