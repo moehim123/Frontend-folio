@@ -15,7 +15,7 @@ const llmproject = {
   themeColor: '#2D3748',
   bannerImage: BannerImage,
   projectImage: BannerImage,
-  liveLink: '',
+  liveLink: 'https://github.com/moehim123/LLM-Behaviour',
   projectLink: '',
   githubLink: '',
   FigmaLink: '',
